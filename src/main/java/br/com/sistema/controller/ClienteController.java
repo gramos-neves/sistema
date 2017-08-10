@@ -16,6 +16,7 @@ public class ClienteController {
 	@Autowired
 	private ClienteDao dao;
 	
+	@CrossOrigin
 	@GetMapping(value="/api/public/cliente/lista")
 	public Iterable<Cliente> listaCliente(){
 		return dao.findAll();

@@ -1,6 +1,7 @@
 package br.com.sistema.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,11 +16,12 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoDao dao;
 	
+	@CrossOrigin
 	@GetMapping(value="/api/public/produtos")
 	public Iterable<Produto> listaProduto(){
 		return dao.findAll();
 	}
-	
+	@CrossOrigin
 	@PostMapping(value="/api/public/produto/salvo")
 	public String salvarProduto(@RequestBody Produto produto){
 		dao.save(produto);
